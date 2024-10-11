@@ -60,7 +60,24 @@ function getRandomColor() {
   button.textContent = 'Generate Color';
   buttonContainer.appendChild(button);
   
+  // Create "Copy" Button dynamically
+  const copyButton = document.createElement('button');
+  copyButton.id = 'copyBtn';
+  copyButton.className = 'btn btn-secondary ml-4';
+  copyButton.textContent = 'Copy Color Code';
+  buttonContainer.appendChild(copyButton);
   
+  // Append elements to app container
+  app.appendChild(title);
+  app.appendChild(colorBoxContainer);
+  app.appendChild(colorCodeContainer);
+  app.appendChild(buttonContainer);
+  
+  // Add Event Listener for Generate Color button
+  button.addEventListener('click', updateColor);
+  
+  // Add Event Listener for Copy button
+  copyButton.addEventListener('click', copyToClipboard);
   
   // Initialize with a random color
   updateColor();
